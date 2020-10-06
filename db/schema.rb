@@ -24,13 +24,12 @@ ActiveRecord::Schema.define(version: 2020_10_06_055031) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
-    t.string "name", null: false
     t.string "last_name", null: false
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "age", null: false
-    t.integer "skin_type", null: false
+    t.integer "age_id", null: false
+    t.integer "skintype_id", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
