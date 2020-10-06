@@ -1,1 +1,10 @@
-reviews#index
+<div class="contents row">
+  <% @reviews.each do |review| %>
+    <div class="content_post" >
+      <p><%= review.content %></p>
+      <span class="name">
+        <%= review.item_name %>
+      </span>
+    </div>
+  <% end %>
+</div>
