@@ -1,4 +1,23 @@
       <%= form.text_field :image, placeholder: "Image Url" %>
-      <%= form.text_area :text, placeholder: "text", rows: "10" %>
+      <%= form.text_field :item_name, placeholder: "商品名を入力してください" %>
+      <%= form.text_area :text, placeholder: "レビューを入力してください", rows: "10" %>
       <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
       <%= form.submit "SEND" %>
+      <div class="field" id="star">
+            <%= form.label :rate ,"星評価（※必須）", id: "e"%>
+            <%= form.hidden_field :rate, id: :review_star %>
+      </div>
+    <script>
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+      //   starOff:  '/assets/images/star-off.png',
+      //   starOn : '/assets/images/star-on.png',
+        scoreName: 'review[rate]'
+      });
+      </script>
+        </div>
+      </div>
+      
