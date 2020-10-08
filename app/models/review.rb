@@ -6,6 +6,7 @@ class Review < ApplicationRecord
   belongs_to_active_hash :category
 
   with_options presence: true do
+  validates :image
   validates :item_name
   validates :content
   validates :rate

@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_065541) do
     t.text "content", null: false
     t.float "rate", null: false
     t.integer "category_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
