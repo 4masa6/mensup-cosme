@@ -1066,3 +1066,11 @@ footer p {
 .search-form .search-btn {
   width: 10%;
 }
+
+.form_exp {
+  background-color: #000080;
+  color: white;
+  padding-left: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+}

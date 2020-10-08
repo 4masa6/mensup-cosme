@@ -1,23 +1,33 @@
-      <%= form.text_field :image, placeholder: "Image Url" %>
-      <%= form.text_field :item_name, placeholder: "商品名を入力してください" %>
-      <%= form.text_area :text, placeholder: "レビューを入力してください", rows: "10" %>
-      <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
-      <%= form.submit "SEND" %>
-      <div class="field" id="star">
-            <%= form.label :rate ,"星評価（※必須）", id: "e"%>
+      <div>
+            <p class="form_exp">写真　※必須</p>
+            <%= form.file_field :image, id:"item-image" %>
+      </div>
+      <div>
+            <p class="form_exp">商品名　※必須</p>
+            <%= form.text_field :item_name, placeholder: "商品名を入力してください" %>
+      </div>
+      <div>
+            <p class="form_exp">カテゴリー　※必須</p>
+            <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+      </div>
+      <br>
+      <p class="form_exp">星評価　※必須</p>
+      <div class="form" id="star">
+            <%= form.label :rate ,"評価：", id: "e"%>
             <%= form.hidden_field :rate, id: :review_star %>
       </div>
-    <script>
-      $('#star').raty({
-        size     : 36,
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf: '<%= asset_path('star-half.png') %>',
-      //   starOff:  '/assets/images/star-off.png',
-      //   starOn : '/assets/images/star-on.png',
-        scoreName: 'review[rate]'
-      });
+      <br>
+      <script>
+            $('#star').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'review[rate]'
+            });
       </script>
-        </div>
+      <div>
+            <p class="form_exp">レビュー　※必須</p>
+            <%= form.text_area :text, placeholder: "レビューを入力してください", rows: "10" %>
       </div>
-      
+      <%= form.submit "SEND" %>
