@@ -15,7 +15,7 @@
     <% end %>
     <div class="review_show">
       <div class="reviw_show_image">
-        <%= image_tag @review.image %>
+        <%= image_tag @review.image.variant(resize: '500x500') %>
       </div>
       <div class="review_show_info">
         <div class="review_show_item_name">
@@ -41,11 +41,11 @@
             </script>
         <span class="reviwe_show_content">レビュー：<%= @review.content %></span>
       </div>
-      <span class="name">
-        <a href="/users/<%= @review.user.id %>">
-          <span>投稿者:</span><%= @review.user.nickname %>
-        </a>
-      </span>
+    </div>
+    <div class="name">
+      <a href="/users/<%= @review.user.id %>">
+        <span>投稿者:</span><%= @review.user.nickname %>
+      </a>
     </div>
   </div>
   <div class="container">
@@ -60,7 +60,7 @@
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
-        <% @comments.each do |comment| %>
+        <% @comments.reverse.each do |comment| %>
           <p>
             <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
             <%= comment.text %>

@@ -29,7 +29,11 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @review.update
+    if @review.update(review_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
