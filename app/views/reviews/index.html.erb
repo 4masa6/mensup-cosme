@@ -1,10 +1,84 @@
-<div class="contents row">
-  <% @reviews.each do |review| %>
-    <div class="content_post" >
-      <p><%= review.content %></p>
-      <span class="name">
-        <%= review.item_name %>
-      </span>
+<div class="top_contents" >
+  <%= image_tag 'top_image4.png' %>
+</div>
+<div class="middle_contents">
+  <h2>〜 メンズアップコスメとは 〜</h2>
+  <p>「身だしなみを整えたい」けど「メンズコスメは種類が多くて何を使えばよいかわからない」</p>
+  <p>そんなお悩みを解決するメンズコスメレビューサイト</p>
+    <div class="middle_contents_info">
+      <div class="middle_contents_block">
+        <div class="middle_contents_icon"><%= image_tag 'reviwe_icon.png' %></div>
+        <div class="middle_contents_text">リアルな口コミ</div>
+        <div class="middle_contents_message">実際に使用した感想を口コミ投稿<br>もう商品購入に失敗しない</div>
+      </div>
+      <div class="middle_contents_block">
+        <div class="middle_contents_icon"><%= image_tag 'search_icon.png' %></div>
+        <div class="middle_contents_text">探しやすい</div>
+        <div class="middle_contents_message">充実した検索機能<br>探したい商品が見つかる</div>
+      </div>
+      <div class="middle_contents_block">
+        <div class="middle_contents_icon"><%= image_tag 'connection_icon.png' %></div>
+        <div class="middle_contents_text">気軽に交流</div>
+        <div class="middle_contents_message">レビューへのコメント機能<br>疑問点は気軽に質問</div>
+      </div>
     </div>
-  <% end %>
+</div>
+<div class="contents row">
+  <div class="contents_title">〜 最新のレビュー一覧 〜</div>
+  <ul class="review_lists">
+    <% @reviews.each do |review| %>
+      <div class="review_list">
+        <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+            <ul class="more_list">
+              <li>
+                <%= link_to '詳細', "#", method: :get %>
+              </li>
+                <% if user_signed_in? && current_user.id == review.user_id %>
+              <li>
+                <%= link_to '編集', "#", method: :get %>
+              </li>
+              <li>
+                <%= link_to '削除', "#", method: :delete %>
+              </li>
+              <% end %>
+            </ul>
+        </div>
+        <div class="review">
+          <div class="reviw_image">
+            <%= image_tag review.image, class: 'review-image' %>
+          </div>
+          <div class="review_info">
+            <div class="review_item_name">
+              商品名：<%= review.item_name %>
+            </div>
+            <div class="review_item_category">
+              カテゴリー：<%= review.category.name %>
+            </div>
+            <div class="review_item_rate">
+              評価：<%= review.rate %>
+            </div>
+            <div class="review_item_rate" id="star-rate-<%= review.id %>"></div>
+                <script>
+                $('#star-rate-<%= review.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= review.rate %>,
+                });
+                </script>
+            <span class="reviwe_content">レビュー：<%= review.content %></span>
+          </div>
+          <span class="name">
+            <a href="/users/<%= review.user.id %>">
+              <span>投稿者:</span><%= review.user.nickname %>
+            </a>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </ul>
 </div>
