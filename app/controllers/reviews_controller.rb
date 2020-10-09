@@ -43,6 +43,7 @@ class ReviewsController < ApplicationController
     else
       render :index
     end
+  end
 
   private
 
