@@ -1,40 +1,39 @@
 .review_list {
-  background-color: #99CCFF;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #8cb1ff;
+  box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 .review_show {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
+  justify-content: center;
 }
 
 .reviw_show_image {
-  height: 200px;
+  height: 50%;
   width: 280px;
   margin: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  box-shadow: 7px 5px 7px rgba(0, 0, 0, 0.1);
 }
 
 .review_show_info {
-  margin: 10px;
-  padding: 25px;
-  width: 75%;
+  margin: 10px 30px 10px 10px;
+  padding: 15px;
+  width: 70%;
   position: relative;
   background-color: white;
   border: rgb(8, 8, 88) 1px solid;
   box-shadow: 7px 5px 7px rgba(0, 0, 0, 0.1);
 }
 
-div.review_show span.name {
-  position: absolute;
-  bottom: 7px;
-  left: 40px;
-  padding: 2px 8px;
+div.review_list div.name {
+  width: 100%;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 5px;
 }
 
 .show_more {
@@ -80,5 +79,5 @@ div.review_show span.name {
 
 .show_more ul.show_more_list li a:hover {
   background-color: #57C3E9;
-  color: #fff;
+  color: #fff; */
 }
