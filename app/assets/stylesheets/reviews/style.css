@@ -909,7 +909,7 @@ div.contents.row {
   display: flex;
   width: 1000vh;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   padding: 3vh 0;
   font-family: "游ゴシック", "YuGothic";
 }
