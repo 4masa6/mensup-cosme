@@ -23,6 +23,9 @@ class ReviewsController < ApplicationController
     @comments = @review.comments.includes(:user)
   end
 
+  def edit
+  end
+
   private
 
   def review_params
