@@ -468,7 +468,7 @@ ul li {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 660px;
+  max-width: 700px;
   *zoom: 1;
 }
 
@@ -674,7 +674,7 @@ a:hover {
 }
 
 .serif,
-div.contents.row div.content_post p {
+div.contents.row div.content_ p {
   font-family: 'ほのか明朝', serif;
 }
 
@@ -851,29 +851,121 @@ header.header .user_nav ul li a {
   right: 0;
 }
 
-div.contents.row h2 {
-  margin: 20px 0;
-  padding: 0;
-  font-weight: normal;
+div.top_contents{
+  text-align: center;
+  width: 100vw;
 }
 
-div.contents.row h2 strong {
+div.middle_contents{
+  width: 100vw;
+  height: 420px;
+  background-color: white;
+}
+
+div.middle_contents h2 {
+  text-align: center;
+  font-size: 25px;
+  padding: 25px;
   font-weight: bold;
-  padding-right: 5px;
-  font-size: 1.2em;
 }
 
-div.contents.row .new_user {
+div.middle_contents p {
+  text-align: center;
+  font-size: 15px;
+}
+
+div.middle_contents_info {
+  padding: 50px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+div.middle_contents_icon {
+  margin: 0 auto 10px;
+}
+
+div.middle_contents_message {
+  font-size: 12px;
+  margin: 1px auto;
+}
+
+div.contents_title {
+  font-size: 40px;
+}
+
+.middle_contents_image {
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.middle_contents_icon {
+  height: 140px;
+  width: 140px;
+}
+
+div.contents.row {
+  display: flex;
+  width: 1000vh;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 3vh 0;
   font-family: "游ゴシック", "YuGothic";
 }
 
+div.contents.row ul.review_lists {
+  width: 100%;
+  padding: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 2px 2px 4px;
+}
+
+div.contents.row ul.review_lists div.review_list {
+  height: 200px;
+  margin: 10px;
+  position: relative;
+}
+
+div.contents.row ul.review_lists div.review_list div.review {
+  display: flex;
+  position: relative;
+  background-color: #000044;
+  border: solid 1px #AAAAAA;
+  box-shadow: 2px 2px 4px;
+  height: 100%;
+  padding: 20px;
+}
+
+.review-image {
+  width: 160px;
+  height: 100%;
+  align-items: center;
+  box-shadow: 2px 2px 4px;
+}
+
+.review_info {
+  padding: 20px;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis; /* Safari */
+	-o-text-overflow: ellipsis; /* Opera */
+}
+
+
 div.contents.row div.content_post {
-  margin: 20px 0;
+  margin: 20px 3px;
   padding: 30px;
+  width: 100%;
   position: relative;
   height: 400px;
   color: #fff;
-  background-size: cover;
+  /* background-size: cover; */
   background-position: center center;
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
@@ -898,22 +990,22 @@ div.contents.row div.content_post:after {
   border-radius: 3px;
 }
 
-div.contents.row div.content_post .more {
+div.contents.row ul.review_lists div.review_list div.more {
   position: absolute;
   cursor: pointer;
-  top: 20px;
-  right: 30px;
+  top: 0px;
+  right: 5px;
   z-index: 2;
   height: 100px;
   width: 80px;
   text-align: right;
 }
 
-div.contents.row div.content_post .more:hover ul.more_list {
+div.contents.row ul.review_lists div.review_list div.more:hover ul.more_list {
   display: block;
 }
 
-div.contents.row div.content_post .more ul.more_list {
+div.contents.row ul.review_lists div.review_list .more ul.more_list {
   position: absolute;
   text-align: left;
   width: 80px;
@@ -926,57 +1018,46 @@ div.contents.row div.content_post .more ul.more_list {
   border-radius: 3px;
 }
 
-div.contents.row div.content_post .more ul.more_list li {
+div.contents.row ul.review_lists div.review_list .more ul.more_list li {
   border-bottom: 1px solid #ddd;
 }
 
-div.contents.row div.content_post .more ul.more_list li:last-child {
+div.contents.row ul.review_lists div.review_list .more ul.more_list li:last-child {
   border-bottom: 0;
 }
 
-div.contents.row div.content_post .more ul.more_list li a {
+div.contents.row ul.review_lists div.review_list .more ul.more_list li a {
   display: block;
   padding: 5px;
 }
 
-div.contents.row div.content_post .more ul.more_list li a:hover {
+div.contents.row ul.review_lists div.review_list .more ul.more_list li a:hover {
   background-color: #57C3E9;
   color: #fff;
 }
 
-div.contents.row div.content_post p {
-  position: absolute;
-  left: 30px;
-  right: 100px;
-  bottom: 30px;
-  margin: 0;
-  font-size: 20px;
-  z-index: 2;
-  font-weight: bold;
-  text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
-}
 
-div.contents.row div.content_post span.name {
+div.contents.row ul.review_lists  div.review_list div.review span.name{
   position: absolute;
   right: 30px;
-  bottom: 30px;
+  bottom: 0px;
   z-index: 2;
   font-size: 13px;
 }
 
-div.contents.row div.content_post span.name a {
+div.contents.row ul.review_lists  div.review_list div.review span.name a {
   display: block;
   color: #aaa;
 }
 
-div.contents.row div.content_post span.name a:hover {
+div.contents.row ul.review_lists  div.review_list div.review span.name a:hover {
   text-decoration: underline;
   color: #aaa;
 }
 
-div.contents.row div.content_post span.name span {
+div.contents.row ul.review_lists  div.review_list div.review span.name span {
   font-size: 9px;
-  display: block;
+  /* display: block; */
 }
 
 div.contents.row .success {
@@ -1065,4 +1146,12 @@ footer p {
 
 .search-form .search-btn {
   width: 10%;
+}
+
+.form_exp {
+  background-color: #000080;
+  color: white;
+  padding-left: 3px;
+  margin-bottom: 3px;
+  width: 100%;
 }
