@@ -891,6 +891,7 @@ div.middle_contents_message {
 }
 
 div.contents_title {
+  margin: 0 auto;
   font-size: 40px;
 }
 
@@ -909,7 +910,6 @@ div.contents.row {
   display: flex;
   width: 1000vh;
   flex-direction: column;
-  /* align-items: center; */
   padding: 3vh 0;
   font-family: "游ゴシック", "YuGothic";
 }
@@ -940,7 +940,7 @@ div.contents.row ul.review_lists div.review_list div.review {
 }
 
 .review-image {
-  width: 160px;
+  width: 180px;
   height: 100%;
   align-items: center;
   box-shadow: 2px 2px 4px;

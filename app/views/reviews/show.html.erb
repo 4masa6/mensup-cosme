@@ -1,0 +1,54 @@
+<div class="contents row">
+  <div class="review_list" >
+    <% if user_signed_in? && current_user.id == @review.user_id %>
+      <div class="show_more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="show_more_list">
+          <li>
+            <%= link_to '編集', "#", method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除', "#", method: :delete %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+    <div class="review_show">
+      <div class="reviw_show_image">
+        <%= image_tag @review.image %>
+      </div>
+      <div class="review_show_info">
+        <div class="review_show_item_name">
+          商品名：<%= @review.item_name %>
+        </div>
+        <div class="review_show_item_category">
+          カテゴリー：<%= @review.category.name %>
+        </div>
+        <div class="review_show_item_rate">
+          評価：<%= @review.rate %>
+        </div>
+        <div class="review_show_item_rate" id="star-rate-<%= @review.id %>"></div>
+            <script>
+            $('#star-rate-<%= @review.id %>').raty({
+              size: 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              readOnly: true,
+              score: <%= @review.rate %>,
+            });
+            </script>
+        <span class="reviwe_show_content">レビュー：<%= @review.content %></span>
+      </div>
+      <span class="name">
+        <a href="/users/<%= @review.user.id %>">
+          <span>投稿者:</span><%= @review.user.nickname %>
+        </a>
+      </span>
+    </div>
+  </div>
+  <div class="container">
+    コメント投稿と一覧が来る
+  </div>
+</div>
