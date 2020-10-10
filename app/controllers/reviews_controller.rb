@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all.order("created_at DESC")
+    @reviews = Review.includes(:user).order("created_at DESC")
   end
 
   def new

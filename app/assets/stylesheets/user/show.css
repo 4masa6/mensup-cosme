@@ -1,0 +1,29 @@
+div.profile {
+  background-color: rgb(197, 217, 235);
+  width: 55vw;
+  margin: 20px auto;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 10px #012A6C;
+  box-shadow: 7px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+div.profile_image {
+  padding-right: 10px;
+  border-radius: 50%;
+}
+
+.mens_silhouette {
+  border-radius: 60%;
+  box-shadow: 7px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+div.profile_info {
+  width: 70%;
+  padding: 20px;
+  margin-left: 5px;
+  background-color: white;
+  box-shadow: 7px 2px 5px rgba(0, 0, 0, 0.1);
+}
