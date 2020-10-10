@@ -1,0 +1,47 @@
+.form-wrap {
+  background-color: white;
+  padding: 30px;
+  width: 60vw;
+  margin: 50px auto;
+  box-shadow: 7px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-header-text {
+  text-align: center;
+  font-size: 30px;
+}
+
+.indispensable {
+  background-color: rgb(224, 7, 7);
+  color: white;
+  padding: 0 5px;
+  width: 100%;
+}
+
+.input-default {
+  margin: 0;
+}
+
+.info-text {
+  margin-top: 30px;
+}
+
+.form-info-header{
+  margin-top: 50px;
+}
+
+.form-info-text {
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-top: 20px;
+}
+
+.form-bottom-text {
+  text-align: center;
+}
+
+.login-btn {
+  margin: 50px;
+}
