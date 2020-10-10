@@ -7,6 +7,14 @@
             <%= form.text_field :item_name, placeholder: "商品名を入力してください" %>
       </div>
       <div>
+            <p class="form_exp">ブランド名　※必須</p>
+            <%= form.text_field :item_brand, placeholder: "ブランド名を入力してください" %>
+      </div>
+      <div>
+            <p class="form_exp">メーカー名　※必須</p>
+            <%= form.text_field :item_maker, placeholder: "メーカー名を入力してください" %>
+      </div>
+      <div>
             <p class="form_exp">カテゴリー　※必須</p>
             <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
       </div>
