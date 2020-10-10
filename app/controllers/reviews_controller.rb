@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+  before_action :search_review, only: [:index, :search]
+
   def index
     @reviews = Review.includes(:user).order("created_at DESC")
   end
@@ -45,10 +47,18 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def search
+    @result = @p.result.includes(:category)
+  end
+
   private
 
   def review_params
     params.require(:review).permit(:image, :item_name, :item_brand, :item_maker, :content, :rate, :category_id).merge(user_id: current_user.id)
+  end
+
+  def search_review
+    @p = Review.ransack(params[:q])
   end
 
 end
