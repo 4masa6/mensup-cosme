@@ -49,7 +49,7 @@ class ReviewsController < ApplicationController
   end
 
   def search
-    @result = @p.result.includes(:category)
+    @results = @p.result
   end
 
   private
@@ -67,5 +67,5 @@ class ReviewsController < ApplicationController
     @review_item_brand = Review.select("item_brand").distinct.order('item_brand ASC')
     @review_item_maker = Review.select("item_maker").distinct.order('item_brand DESC')
   end
-
+  
 end
