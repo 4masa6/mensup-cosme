@@ -18,6 +18,6 @@ class User < ApplicationRecord
     validates :last_name_kana, format: { with: /\A[ァ-ン]+\z/, message: 'Full-width katakana characters' }
   end
 
-  validates :age_id, numericality: { other_than: 1 }
-  validates :skintype_id, numericality: { other_than: 1 }
+  validates :age_id, numericality: { other_than: 1, message:'Select' }
+  validates :skintype_id, numericality: { other_than: 1, message:'Select' }
 end

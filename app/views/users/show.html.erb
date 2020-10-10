@@ -1,1 +1,65 @@
-users#show
+
+<div class="profile">
+  <div class="profile_image">
+    <%= image_tag("mens_silhouette.jpg", class:"mens_silhouette",:size =>'150x150')%>
+  </div>
+  <div class="profile_info">
+    <div>ユーザー名： <%= @nickname %></div>
+    <div>年齢： <%= @age %></div>
+    <div>肌タイプ： <%= @skintype %></div>
+  </div>
+</div>
+
+<div class="contents row">
+  <div class="contents_title">
+    〜 <%= @nickname %>さんのレビュー一覧 〜
+  </div>
+  <ul class="review_lists">
+    <% @reviews.each do |review| %>
+      <div class="review_list">
+        <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+            <ul class="more_list">
+              <li>
+                <%= link_to '詳細', review_path(review.id), method: :get %>
+              </li>
+            </ul>
+        </div>
+        <div class="review">
+          <div class="reviw_image">
+            <%= image_tag review.image, class: 'review-image' %>
+          </div>
+          <div class="review_info">
+            <div class="review_item_name">
+              商品名：<%= review.item_name %>
+            </div>
+            <div class="review_item_category">
+              カテゴリー：<%= review.category.name %>
+            </div>
+            <div class="review_item_rate">
+              評価：<%= review.rate %>
+            </div>
+            <div class="review_item_rate" id="star-rate-<%= review.id %>"></div>
+                <script>
+                $('#star-rate-<%= review.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= review.rate %>,
+                });
+                </script>
+            <span class="reviwe_content">レビュー：<%= review.content %></span>
+          </div>
+          <span class="name">
+            <a href="/users/<%= review.user.id %>">
+              <span>投稿者:</span><%= review.user.nickname %>
+            </a>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>
