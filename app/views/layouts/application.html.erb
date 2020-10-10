@@ -22,7 +22,7 @@
             <span><%= current_user.nickname %>
               <ul class="user__info">
                 <li>
-                  <%= link_to 'マイページ', "#", class: "user-nickname" %>
+                  <%= link_to 'マイページ', "/users/#{current_user.id}", class: "user-nickname" %>
                   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
                 </li>
               </ul>
