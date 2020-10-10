@@ -1,41 +1,42 @@
 <%= render "shared/second_header" %>
 <div class="contents row">
-  <div class="contents_title">
-    〜 最新のレビュー一覧 〜
-  </div>
-  <div class="search_result">
-    <div class="search_info">
-      検索内容
-        <div>
-          <% unless params[:q][:item_name_cont].empty?%>
-            商品名： <%= params[:q][:item_name_cont] %>
-          <% end %>
-        </div>
-        <div>
-          <% unless params[:q][:rate_eq].empty?%>
-            評価： <%= params[:q][:rate_eq] %>
-          <% end %>
-        </div>
-        <div>
-          <% unless params[:q][:item_brand_eq].empty?%>
-            ブランド名： <%= params[:q][:item_brand_eq] %>
-          <% end %>
-        </div>
-        <div>
-          <% unless params[:q][:item_maker_eq].empty?%>
-            メーカー名： <%= params[:q][:item_maker_eq] %>
-          <% end %>
-        </div>
-        <div>
-          <% unless params[:q][:category_id_eq].empty? %>
-            カテゴリー： <%= Category.find(params[:q][:category_id_eq]).name %>
-          <% end %>
-        </div>
-        
+  <div class="search_box">
+    <div class="search_title">
+      検索条件
+    </div>
+    <div class="search_query">
+      <div>
+        <% unless params[:q][:item_name_cont].empty?%>
+          商品名： <%= params[:q][:item_name_cont] %>
+        <% end %>
+      </div>
+      <div>
+        <% unless params[:q][:rate_eq].empty?%>
+          評価： <%= params[:q][:rate_eq] %>
+        <% end %>
+      </div>
+      <div>
+        <% unless params[:q][:item_brand_eq].empty?%>
+          ブランド名： <%= params[:q][:item_brand_eq] %>
+        <% end %>
+      </div>
+      <div>
+        <% unless params[:q][:item_maker_eq].empty?%>
+          メーカー名： <%= params[:q][:item_maker_eq] %>
+        <% end %>
+      </div>
+      <div>
+        <% unless params[:q][:category_id_eq].empty? %>
+          カテゴリー： <%= Category.find(params[:q][:category_id_eq]).name %>
+        <% end %>
+      </div>
     </div>
     <div class="top-link">
-    <%= link_to 'トップへ戻る', '/' %>
+      <%= link_to 'トップへ戻る', '/' %>
     </div>
+  </div>
+  <div class="contents_title">
+    〜 レビュー一覧 〜
   </div>
   <ul class="review_lists">
     <% @results.each do |result| %>
