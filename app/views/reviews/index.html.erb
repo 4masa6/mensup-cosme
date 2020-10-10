@@ -3,6 +3,23 @@
   <div class="contents_title">
     〜 最新のレビュー一覧 〜
   </div>
+  <div>
+    検索条件欄
+    <%= search_form_for @p, url: reviews_search_path do |f| %>
+      <%= f.label :item_name_cont, '商品名' %>
+      <%= f.search_field :item_name_cont %>
+      <%= f.label :rate_eq, '評価' %>
+      <%= f.collection_select :rate_eq, @reviews, :rate, :rate,  include_blank: '指定なし' %>
+      <%= f.label :item_brand_eq, 'ブランド名' %>
+      <%= f.collection_select :item_brand_eq, @reviews, :item_brand, :item_brand,  include_blank: '指定なし' %>
+      <%= f.label :item_maker_eq, 'メーカー名' %>
+      <%= f.collection_select :item_maker_eq, @reviews, :item_maker, :item_maker,  include_blank: '指定なし' %>
+      <%= f.label :category_id_eq, 'カテゴリー名' %>
+      <%= f.collection_select :category_id_eq, Category.all, :id, :name,  include_blank: '指定なし' %>
+      <br>
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
   <ul class="review_lists">
     <% @reviews.each do |review| %>
       <div class="review_list">
