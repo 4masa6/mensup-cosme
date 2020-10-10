@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.includes(:user).order("created_at DESC")
+    set_review_column
   end
 
   def new
@@ -59,6 +60,12 @@ class ReviewsController < ApplicationController
 
   def search_review
     @p = Review.ransack(params[:q])
+  end
+
+  def set_review_column
+    @review_rate = Review.select("rate").distinct.order('rate DESC')
+    @review_item_brand = Review.select("item_brand").distinct.order('item_brand ASC')
+    @review_item_maker = Review.select("item_maker").distinct.order('item_brand DESC')
   end
 
 end
