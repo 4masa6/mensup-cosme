@@ -891,8 +891,9 @@ div.middle_contents_message {
 }
 
 div.contents_title {
-  margin: 0 auto;
+  text-align: center;
   font-size: 25px;
+  font-weight: bold;
 }
 
 .middle_contents_image {
@@ -924,7 +925,7 @@ div.contents.row ul.review_lists {
 }
 
 div.contents.row ul.review_lists div.review_list {
-  height: 200px;
+  height: 250px;
   margin: 10px;
   position: relative;
 }
@@ -947,8 +948,8 @@ div.contents.row ul.review_lists div.review_list div.review {
 }
 
 .review_info {
-  padding: 20px;
-  width: 100%;
+  padding: 20px 40px;
+  width: 70%;
   background-color: white;
   overflow: hidden;
   white-space: nowrap;

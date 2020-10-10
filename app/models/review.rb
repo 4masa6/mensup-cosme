@@ -9,6 +9,8 @@ class Review < ApplicationRecord
   with_options presence: true do
   validates :image
   validates :item_name
+  validates :item_brand
+  validates :item_maker
   validates :content
   validates :rate
   end

@@ -1,0 +1,103 @@
+<%= render "shared/second_header" %>
+<div class="contents row">
+  <div class="search_box">
+    <div class="search_title">
+      検索条件
+    </div>
+    <div class="search_query">
+      <div>
+        <% unless params[:q][:item_name_cont].empty?%>
+          商品名： <%= params[:q][:item_name_cont] %>
+        <% end %>
+      </div>
+      <div>
+        <% unless params[:q][:rate_eq].empty?%>
+          評価： <%= params[:q][:rate_eq] %>
+        <% end %>
+      </div>
+      <div>
+        <% unless params[:q][:item_brand_eq].empty?%>
+          ブランド名： <%= params[:q][:item_brand_eq] %>
+        <% end %>
+      </div>
+      <div>
+        <% unless params[:q][:item_maker_eq].empty?%>
+          メーカー名： <%= params[:q][:item_maker_eq] %>
+        <% end %>
+      </div>
+      <div>
+        <% unless params[:q][:category_id_eq].empty? %>
+          カテゴリー： <%= Category.find(params[:q][:category_id_eq]).name %>
+        <% end %>
+      </div>
+    </div>
+    <div class="top-link">
+      <%= link_to 'トップへ戻る', '/' %>
+    </div>
+  </div>
+  <div class="contents_title">
+    〜 レビュー一覧 〜
+  </div>
+  <ul class="review_lists">
+    <% @results.each do |result| %>
+      <div class="review_list">
+        <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+            <ul class="more_list">
+              <li>
+                <%= link_to '詳細', review_path(result.id), method: :get %>
+              </li>
+              <% if user_signed_in? && current_user.id == result.user_id %>
+                <li>
+                  <%= link_to '編集', edit_review_path(result.id), method: :get %>
+                </li>
+                <li>
+                  <%= link_to '削除', review_path(result.id), method: :delete %>
+                </li>
+              <% end %>
+            </ul>
+        </div>
+        <div class="review">
+          <div class="reviw_image">
+            <%= image_tag result.image, class: 'review-image' %>
+          </div>
+          <div class="review_info">
+            <div class="review_item_name">
+              商品名：<%= result.item_name %>
+            </div>
+            <div class="review_brand">
+              ブランド名：<%= result.item_brand %>
+            </div>
+            <div class="review_brand">
+              メーカー名：<%= result.item_maker %>
+            </div>
+            <div class="review_item_category">
+              カテゴリー：<%= result.category.name %>
+            </div>
+            <div class="review_item_rate">
+              評価：<%= result.rate %>
+            </div>
+            <div class="review_item_rate" id="star-rate-<%= result.id %>"></div>
+                <script>
+                $('#star-rate-<%= result.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= result.rate %>,
+                });
+                </script>
+            <span class="reviwe_content">レビュー：<%= result.content %></span>
+          </div>
+          <span class="name">
+            <a href="/users/<%= result.user.id %>">
+              <span>投稿者:</span><%= result.user.nickname %>
+            </a>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>
