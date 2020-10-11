@@ -17,6 +17,8 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: /\A[ァ-ン]+\z/, message: 'Full-width katakana characters' }
     validates :last_name_kana, format: { with: /\A[ァ-ン]+\z/, message: 'Full-width katakana characters' }
   end
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
 
   validates :age_id, numericality: { other_than: 1, message:'Select' }
   validates :skintype_id, numericality: { other_than: 1, message:'Select' }
