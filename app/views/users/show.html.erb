@@ -15,7 +15,7 @@
     〜 <%= @nickname %>さんのレビュー一覧 〜
   </div>
   <ul class="review_lists">
-    <% @reviews.each do |review| %>
+    <% @reviews.reverse_each do |review| %>
       <div class="review_list">
         <div class="more">
           <span><%= image_tag 'arrow_top.png' %></span>
@@ -35,7 +35,7 @@
         </div>
         <div class="review">
           <div class="reviw_image">
-            <%= image_tag review.image, class: 'review-image' %>
+            <%= image_tag review.image.variant(resize: '120x180'), class: 'review_show_image' %>
           </div>
           <div class="review_info">
             <div class="review_item_name">
