@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: mensup_cosme_production
-  username: mensup_cosme
-  password: <%= ENV['MENSUP_COSME_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
