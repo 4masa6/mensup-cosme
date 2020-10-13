@@ -3,7 +3,7 @@ lock '3.14.1'
 
 set :application, 'mensup-cosme'
 
-set :repo_url,  'git@github.com:4masa6/menup-cosme.git'
+set :repo_url,  'git@github.com:4masa6/mensup-cosme.git'
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
