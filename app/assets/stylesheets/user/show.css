@@ -21,9 +21,45 @@ div.profile_image {
 }
 
 div.profile_info {
-  width: 70%;
-  padding: 20px;
-  margin-left: 5px;
+  width: 60%;
+  padding: 40px;
   background-color: white;
   box-shadow: 7px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile_left {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.follow_top {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 30px;
+}
+
+.user_lists {
+  text-align: center;
+  width: 40vw;
+  margin: 20px auto;
+  padding: 20px 50px;
+  background-color: white;
+  box-shadow: 7px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user_list {
+  text-align; counter;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_list_nickname {
+  font-weight: bold;
+}
+
+.user_list_userpage {
+  color: blue;
+  text-decoration: underline;
 }

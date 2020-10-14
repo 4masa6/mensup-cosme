@@ -1,0 +1,11 @@
+<div class="follow_top">
+  〜 フォロされているユーザー 〜
+</div>
+<% @user.followers.each do |user| %>
+  <div class="user_lists">
+    <div class="user_list">
+      <div class="user_list_nickname">  <%= user.nickname %> </div>
+      <div class="user_list_userpage">  <%= link_to '詳細', user_path(user) %></div>
+    </div>
+  </div>
+<% end %>
