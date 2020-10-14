@@ -4,6 +4,8 @@ class User < ApplicationRecord
   belongs_to_active_hash :skintype
   has_many :reviews
   has_many :comments
+  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+  has_many :followings, through: :following_relationships
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
