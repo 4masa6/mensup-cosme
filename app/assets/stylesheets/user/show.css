@@ -50,7 +50,7 @@ div.profile_info {
 }
 
 .user_list {
-  text-align; counter;
+  text-align: counter;
   display: flex;
   justify-content: space-between;
 }
