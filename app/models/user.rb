@@ -21,6 +21,12 @@ class User < ApplicationRecord
     following_relationships.find_by(following_id: other_user.id).destroy
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', nickname: 'テストユーザー', first_name: '五郎', last_name: '山田', first_name_kana: 'ゴロウ', last_name_kana: 'ヤマダ', age_id: '2', skintype_id: '2') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
