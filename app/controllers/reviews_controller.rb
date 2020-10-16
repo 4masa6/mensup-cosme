@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   before_action :search_review, only: [:index, :search]
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def index
     @reviews = Review.includes(:user).order("created_at DESC")
@@ -21,17 +22,14 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
     @comment = Comment.new
     @comments = @review.comments.includes(:user)
   end
 
   def edit
-    @review = Review.find(params[:id])
   end
 
   def update
-    @review = Review.find(params[:id])
     if @review.update(review_params)
       redirect_to root_path
     else
@@ -40,7 +38,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
     if @review.destroy
       redirect_to root_path
     else
@@ -53,6 +50,10 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def set_review
+    @review = Review.find(params[:id])
+  end
 
   def review_params
     params.require(:review).permit(:image, :item_name, :item_brand, :item_maker, :content, :rate, :category_id).merge(user_id: current_user.id)
