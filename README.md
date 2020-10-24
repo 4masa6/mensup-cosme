@@ -125,7 +125,7 @@ Men's up Cosme 　〜 メンズアップコスメ 〜
 
 ![02  レビュー投稿](https://user-images.githubusercontent.com/70381096/96371810-a4a95d80-119e-11eb-8e93-ded8aa83c916.gif)
 
-- 画像投稿機能（ActiveStorage）
+- 画像投稿機能（AWS・S3）
 - 星評価機能を実装
 
 ### レビュー一覧表示
